@@ -22,7 +22,7 @@ async function mockVrf(requestId, lottery) {
     const vrfCoordinatorV2Mock = await ethers.getContract("VRFCoordinatorV2Mock")
     await vrfCoordinatorV2Mock.fulfillRandomWords(requestId, lottery.address)
     console.log("Responded!")
-    const recentWinner = await lottery.getRecentWinner()
+    const recentWinner = await lottery.getMostRecentWinner()
     console.log(`The winner is: ${recentWinner}`)
 }
 
